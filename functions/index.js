@@ -21,7 +21,7 @@ exports.handler = async (context, event, callback) => {
     "Content-Type": "application/json",
   };
   let reqOptions = {
-    url: `https://d3v-k4.zendesk.com/api/v2/tickets/${event.id}.json`,
+    url: `https://${context.ZENDESK_SUBDOMAIN}.zendesk.com/api/v2/tickets/${event.id}.json`,
     method: "PUT",
     headers: headersList,
     data: comment,
