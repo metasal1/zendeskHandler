@@ -15,9 +15,11 @@ exports.handler = async (context, event, callback) => {
   }`;
   // create ticket comment in Zendesk
 
+  let creds = Buffer.from(context.ZENDESK_USER+'/token:'+context.ZENDESK_TOKEN).toString('base64');
+  
   let headersList = {
     Accept: "*/*",
-    Authorization: `Basic ${context.ZENDESK_TOKEN}`,
+    Authorization: `Basic ${creds}`,
     "Content-Type": "application/json",
   };
   let reqOptions = {
